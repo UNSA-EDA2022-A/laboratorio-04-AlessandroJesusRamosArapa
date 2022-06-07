@@ -104,13 +104,30 @@ public class SinglyLinkedList<T> {
     }
 
     // Inserta un nuevo nodo en una posicion especifica de la lista
-    public void insertNth(T data, int position) {
-
+    public void insertNth(T data, int position) { 
+        Node temp = first;
+	Node holder;
+        if(position==0)
+            this.addFirst(data); 
+        else{
+            for(int i=0; i < position-1 && temp.getNext() != null; i++){
+                temp = temp.getNext();
+            }
+            holder = temp.getNext();
+            temp.next = new Node(data,null);
+            temp.next.next = holder;
+	}
+	    size++;
     }
 
     // Elimina el nodo de una posicion especifica de la lista
     public void deleteNth(int position) {
-
+	Node temp = first;
+	for(int i=0; i< position - 1 && temp.next != null; i++){
+        	temp = temp.next;
+	}
+	temp.next = temp.next.next;
+	size--;
     }
 
     public static void main(final String[] args) {

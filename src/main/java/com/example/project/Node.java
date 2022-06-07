@@ -2,7 +2,7 @@ package com.example.project;
 
 public class Node<T> {
     private T value;      // Valor guardado en el nodo
-    private Node<T> next; // Referencia para el proximo nodo de la lista
+    public Node<T> next; // Referencia para el proximo nodo de la lista
  
     // Constructor
     Node(T v, Node<T> n) {
